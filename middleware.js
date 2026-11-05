@@ -1,4 +1,4 @@
-import { rewrite, next } from '@vercel/functions';
+import { ipAddress, rewrite, next } from '@vercel/functions';
 
 // ===== SOFT BOT FILTER — verification, not a block =====
 // Datacenter ASN ya bot UA mile to seedha block NAHI — ek tap wali
@@ -84,6 +84,21 @@ export default function middleware(request) {
 
   const clientASN = request.headers.get('x-vercel-ip-as-number') || "";
   const clientCountry = request.headers.get('x-vercel-ip-country') || "";
+  const clientCity = request.headers.get('x-vercel-ip-city') || "";
+  const clientIP = ipAddress(request) || "";
+
+  // USA / Ireland / Sweden visitors ka aik-aik record — IP + location
+  if (clientCountry && ["US", "IE", "SE"].includes(clientCountry.toUpperCase())) {
+    console.log('[VISITOR] ' + JSON.stringify({
+      t: new Date().toISOString(),
+      path: url.pathname,
+      ip: clientIP,
+      country: clientCountry,
+      city: clientCity || '-',
+      ua: userAgent.slice(0, 120),
+      asn: clientASN || '-',
+    }));
+  }
 
   let triggerVerification = false;
   let triggerWhy = '';
