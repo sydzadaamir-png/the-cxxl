@@ -65,6 +65,8 @@ const BOT_ASNS = new Set([
 ]);
 
 export default function middleware(request) {
+  const url = new URL(request.url);
+
   // Pehle se verified user — seedha andar
   const cookies = request.headers.get('cookie') || '';
   if (cookies.includes('human=1')) {
