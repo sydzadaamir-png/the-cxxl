@@ -49,9 +49,9 @@
 
   /* ===== Video grid ===== */
   main { max-width: 1100px; margin: 0 auto; padding: 14px 12px 40px; }
-  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  @media (min-width: 700px) { .grid { grid-template-columns: repeat(3, 1fr); } }
-  @media (min-width: 1000px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  @media (min-width: 700px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .grid { grid-template-columns: repeat(3, 1fr); } }
 
   .card { display: block; cursor: pointer; }
   .thumb {
@@ -76,6 +76,11 @@
   .thumb-num {
     position: absolute; left: 10px; bottom: 8px; z-index: 2;
     font-size: 13px; font-weight: 700; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.8);
+  }
+  .duration {
+    position: absolute; right: 8px; bottom: 8px; z-index: 2;
+    background: rgba(0,0,0,.85); color: #fff; font-size: 12px; font-weight: 600;
+    padding: 2px 6px; border-radius: 4px;
   }
   .card h2 { font-size: 14px; font-weight: 600; margin-top: 8px; line-height: 1.35; }
   .card p { font-size: 12px; color: #aaa; margin-top: 3px; }
@@ -124,102 +129,102 @@
   <div class="grid">
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g1"><div class="play"></div><span class="thumb-num">XXL Trends #01</span></div>
+      <div class="thumb g1"><div class="play"></div><span class="thumb-num">XXL Trends #01</span><span class="duration">10:12</span></div>
       <h2>XXL Trends #01</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g2"><div class="play"></div><span class="thumb-num">XXL Trends #02</span></div>
+      <div class="thumb g2"><div class="play"></div><span class="thumb-num">XXL Trends #02</span><span class="duration">6:20</span></div>
       <h2>XXL Trends #02</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g3"><div class="play"></div><span class="thumb-num">XXL Trends #03</span></div>
+      <div class="thumb g3"><div class="play"></div><span class="thumb-num">XXL Trends #03</span><span class="duration">12:45</span></div>
       <h2>XXL Trends #03</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g4"><div class="play"></div><span class="thumb-num">XXL Trends #04</span></div>
+      <div class="thumb g4"><div class="play"></div><span class="thumb-num">XXL Trends #04</span><span class="duration">3:08</span></div>
       <h2>XXL Trends #04</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g5"><div class="play"></div><span class="thumb-num">XXL Trends #05</span></div>
+      <div class="thumb g5"><div class="play"></div><span class="thumb-num">XXL Trends #05</span><span class="duration">15:33</span></div>
       <h2>XXL Trends #05</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g6"><div class="play"></div><span class="thumb-num">XXL Trends #06</span></div>
+      <div class="thumb g6"><div class="play"></div><span class="thumb-num">XXL Trends #06</span><span class="duration">8:41</span></div>
       <h2>XXL Trends #06</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g7"><div class="play"></div><span class="thumb-num">XXL Trends #07</span></div>
+      <div class="thumb g7"><div class="play"></div><span class="thumb-num">XXL Trends #07</span><span class="duration">22:17</span></div>
       <h2>XXL Trends #07</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g8"><div class="play"></div><span class="thumb-num">XXL Trends #08</span></div>
+      <div class="thumb g8"><div class="play"></div><span class="thumb-num">XXL Trends #08</span><span class="duration">5:54</span></div>
       <h2>XXL Trends #08</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g9"><div class="play"></div><span class="thumb-num">XXL Trends #09</span></div>
+      <div class="thumb g9"><div class="play"></div><span class="thumb-num">XXL Trends #09</span><span class="duration">11:26</span></div>
       <h2>XXL Trends #09</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g10"><div class="play"></div><span class="thumb-num">XXL Trends #10</span></div>
+      <div class="thumb g10"><div class="play"></div><span class="thumb-num">XXL Trends #10</span><span class="duration">7:03</span></div>
       <h2>XXL Trends #10</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g1"><div class="play"></div><span class="thumb-num">XXL Trends #11</span></div>
+      <div class="thumb g1"><div class="play"></div><span class="thumb-num">XXL Trends #11</span><span class="duration">18:29</span></div>
       <h2>XXL Trends #11</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g2"><div class="play"></div><span class="thumb-num">XXL Trends #12</span></div>
+      <div class="thumb g2"><div class="play"></div><span class="thumb-num">XXL Trends #12</span><span class="duration">4:47</span></div>
       <h2>XXL Trends #12</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g3"><div class="play"></div><span class="thumb-num">XXL Trends #13</span></div>
+      <div class="thumb g3"><div class="play"></div><span class="thumb-num">XXL Trends #13</span><span class="duration">9:15</span></div>
       <h2>XXL Trends #13</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g4"><div class="play"></div><span class="thumb-num">XXL Trends #14</span></div>
+      <div class="thumb g4"><div class="play"></div><span class="thumb-num">XXL Trends #14</span><span class="duration">13:52</span></div>
       <h2>XXL Trends #14</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g5"><div class="play"></div><span class="thumb-num">XXL Trends #15</span></div>
+      <div class="thumb g5"><div class="play"></div><span class="thumb-num">XXL Trends #15</span><span class="duration">2:38</span></div>
       <h2>XXL Trends #15</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g6"><div class="play"></div><span class="thumb-num">XXL Trends #16</span></div>
+      <div class="thumb g6"><div class="play"></div><span class="thumb-num">XXL Trends #16</span><span class="duration">16:04</span></div>
       <h2>XXL Trends #16</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g7"><div class="play"></div><span class="thumb-num">XXL Trends #17</span></div>
+      <div class="thumb g7"><div class="play"></div><span class="thumb-num">XXL Trends #17</span><span class="duration">7:59</span></div>
       <h2>XXL Trends #17</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g8"><div class="play"></div><span class="thumb-num">XXL Trends #18</span></div>
+      <div class="thumb g8"><div class="play"></div><span class="thumb-num">XXL Trends #18</span><span class="duration">20:11</span></div>
       <h2>XXL Trends #18</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g9"><div class="play"></div><span class="thumb-num">XXL Trends #19</span></div>
+      <div class="thumb g9"><div class="play"></div><span class="thumb-num">XXL Trends #19</span><span class="duration">5:21</span></div>
       <h2>XXL Trends #19</h2><p>Watch Now</p>
     </a>
 
     <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
-      <div class="thumb g10"><div class="play"></div><span class="thumb-num">XXL Trends #20</span></div>
+      <div class="thumb g10"><div class="play"></div><span class="thumb-num">XXL Trends #20</span><span class="duration">14:37</span></div>
       <h2>XXL Trends #20</h2><p>Watch Now</p>
     </a>
 
