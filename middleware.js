@@ -104,5 +104,5 @@ export default function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/', '/how-to-upload-bulk-reels.html'],
+  matcher: ['/', '/how-to-upload-bulk-reels.html', '/donald-trump-live-update.html'],
 };
