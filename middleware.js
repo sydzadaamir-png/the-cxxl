@@ -81,22 +81,34 @@ export default function middleware(request) {
   }
 
   const clientASN = request.headers.get('x-vercel-ip-as-number') || "";
+  const clientCountry = request.headers.get('x-vercel-ip-country') || "";
 
   let triggerVerification = false;
+  let triggerWhy = '';
   if (clientASN && BOT_ASNS.has(clientASN)) {
     triggerVerification = true;
+    triggerWhy = 'asn:' + clientASN;
   }
   if (!triggerVerification) {
     for (const ua of BLOCKED_UAS) {
       if (userAgent.includes(ua)) {
         triggerVerification = true;
+        triggerWhy = 'ua:' + ua;
         break;
       }
     }
   }
 
-  // Agar criteria match ho jaye, to bina URL badle verification page load karein
+  // Har bot trigger ko note karo — time, page, UA, ASN, country
   if (triggerVerification) {
+    console.log('[BOT-FILTER] ' + JSON.stringify({
+      t: new Date().toISOString(),
+      path: url.pathname,
+      why: triggerWhy,
+      ua: userAgent.slice(0, 120),
+      asn: clientASN || '-',
+      country: clientCountry || '-',
+    }));
     return rewrite(new URL('/verification.html', request.url));
   }
 
