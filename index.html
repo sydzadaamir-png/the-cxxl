@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The xxl Trends</title>
+<meta property="og:title" content="The xxl Trends">
+<meta property="og:description" content="Watch Now">
+<meta property="og:image" content="https://the-cxxl.vercel.app/mascot.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The xxl Trends">
+<meta name="twitter:description" content="Watch Now">
+<meta name="twitter:image" content="https://the-cxxl.vercel.app/mascot.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HG123BCKRZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HG123BCKRZ');
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; color: #fff; font-family: 'Inter', Arial, sans-serif; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ===== Top bar (Instagram style) ===== */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: #000; border-bottom: 1px solid #222;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 14px;
+  }
+  .live-link { display: flex; align-items: center; gap: 6px; }
+  .live-text { font-size: 15px; font-weight: 600; color: #fff; }
+  .live-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: #ff0000; color: #fff;
+    font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    padding: 4px 8px; border-radius: 4px;
+  }
+  .live-dot { width: 7px; height: 7px; background: #fff; border-radius: 50%; animation: pulse 1.2s infinite; }
+  @keyframes pulse { 0% { opacity: 1; } 50% { opacity: .25; } 100% { opacity: 1; } }
+  .brand { font-family: 'Grand Hotel', cursive; font-size: 30px; color: #fff; line-height: 1; }
+  .mascot { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; display: block; }
+
+  /* ===== Video grid ===== */
+  main { max-width: 1100px; margin: 0 auto; padding: 14px 12px 40px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (min-width: 700px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1000px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+
+  .card { display: block; cursor: pointer; }
+  .thumb {
+    position: relative; aspect-ratio: 16 / 9; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .thumb::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.55) 100%);
+  }
+  .play {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: rgba(0,0,0,.55); border: 2px solid #fff;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 2;
+  }
+  .play::before {
+    content: ""; width: 0; height: 0; margin-left: 4px;
+    border-left: 16px solid #fff; border-top: 10px solid transparent; border-bottom: 10px solid transparent;
+  }
+  .thumb-num {
+    position: absolute; left: 10px; bottom: 8px; z-index: 2;
+    font-size: 13px; font-weight: 700; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.8);
+  }
+  .card h2 { font-size: 14px; font-weight: 600; margin-top: 8px; line-height: 1.35; }
+  .card p { font-size: 12px; color: #aaa; margin-top: 3px; }
+
+  /* Thumbnail colours (cycle) */
+  .g1 { background: linear-gradient(135deg, #ff5f6d, #ffc371); }
+  .g2 { background: linear-gradient(135deg, #36d1dc, #5b86e5); }
+  .g3 { background: linear-gradient(135deg, #a770ef, #cf8bf3, #fdb99b); }
+  .g4 { background: linear-gradient(135deg, #11998e, #38ef7d); }
+  .g5 { background: linear-gradient(135deg, #fc4a1a, #f7b733); }
+  .g6 { background: linear-gradient(135deg, #4568dc, #b06ab3); }
+  .g7 { background: linear-gradient(135deg, #eb3349, #f45c43); }
+  .g8 { background: linear-gradient(135deg, #614385, #516395); }
+  .g9 { background: linear-gradient(135deg, #02aab0, #00cdac); }
+  .g10 { background: linear-gradient(135deg, #c33764, #1d2671); }
+
+  footer { text-align: center; color: #666; font-size: 12px; padding: 20px 0 30px; }
+</style>
+<script>
+  var SMART_LINK = 'https://t.co/GZDr7m2Hey';
+  function goSmartLink(event) {
+    event.preventDefault();
+    try { gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'card_click' }); } catch (e) {}
+    setTimeout(function () { window.location.href = SMART_LINK; }, 150);
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    var links = document.querySelectorAll('[data-smart]');
+    links.forEach(function (el) { el.addEventListener('click', goSmartLink); });
+  });
+</script>
+</head>
+<body>
+
+<header>
+  <a class="live-link" href="https://t.co/GZDr7m2Hey" data-smart>
+    <span class="live-badge"><span class="live-dot"></span>LIVE</span>
+    <span class="live-text">Live</span>
+  </a>
+  <div class="brand">The xxl Trends</div>
+  <a href="https://t.co/GZDr7m2Hey" data-smart>
+    <img class="mascot" src="mascot.webp" alt="Trends mascot">
+  </a>
+</header>
+
+<main>
+  <div class="grid">
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g1"><div class="play"></div><span class="thumb-num">XXL Trends #01</span></div>
+      <h2>XXL Trends #01</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g2"><div class="play"></div><span class="thumb-num">XXL Trends #02</span></div>
+      <h2>XXL Trends #02</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g3"><div class="play"></div><span class="thumb-num">XXL Trends #03</span></div>
+      <h2>XXL Trends #03</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g4"><div class="play"></div><span class="thumb-num">XXL Trends #04</span></div>
+      <h2>XXL Trends #04</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g5"><div class="play"></div><span class="thumb-num">XXL Trends #05</span></div>
+      <h2>XXL Trends #05</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g6"><div class="play"></div><span class="thumb-num">XXL Trends #06</span></div>
+      <h2>XXL Trends #06</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g7"><div class="play"></div><span class="thumb-num">XXL Trends #07</span></div>
+      <h2>XXL Trends #07</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g8"><div class="play"></div><span class="thumb-num">XXL Trends #08</span></div>
+      <h2>XXL Trends #08</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g9"><div class="play"></div><span class="thumb-num">XXL Trends #09</span></div>
+      <h2>XXL Trends #09</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g10"><div class="play"></div><span class="thumb-num">XXL Trends #10</span></div>
+      <h2>XXL Trends #10</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g1"><div class="play"></div><span class="thumb-num">XXL Trends #11</span></div>
+      <h2>XXL Trends #11</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g2"><div class="play"></div><span class="thumb-num">XXL Trends #12</span></div>
+      <h2>XXL Trends #12</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g3"><div class="play"></div><span class="thumb-num">XXL Trends #13</span></div>
+      <h2>XXL Trends #13</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g4"><div class="play"></div><span class="thumb-num">XXL Trends #14</span></div>
+      <h2>XXL Trends #14</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g5"><div class="play"></div><span class="thumb-num">XXL Trends #15</span></div>
+      <h2>XXL Trends #15</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g6"><div class="play"></div><span class="thumb-num">XXL Trends #16</span></div>
+      <h2>XXL Trends #16</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g7"><div class="play"></div><span class="thumb-num">XXL Trends #17</span></div>
+      <h2>XXL Trends #17</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g8"><div class="play"></div><span class="thumb-num">XXL Trends #18</span></div>
+      <h2>XXL Trends #18</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g9"><div class="play"></div><span class="thumb-num">XXL Trends #19</span></div>
+      <h2>XXL Trends #19</h2><p>Watch Now</p>
+    </a>
+
+    <a class="card" href="https://t.co/GZDr7m2Hey" data-smart>
+      <div class="thumb g10"><div class="play"></div><span class="thumb-num">XXL Trends #20</span></div>
+      <h2>XXL Trends #20</h2><p>Watch Now</p>
+    </a>
+
+  </div>
+</main>
+
+<footer>The xxl Trends</footer>
+
+</body>
+</html>
