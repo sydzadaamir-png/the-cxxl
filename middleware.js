@@ -85,7 +85,12 @@ export default function middleware(request) {
 
   // Loop-breaker: Continue dabane ke baad cookie milti hai (24h).
   // Iske baghair user tap karke bhi verification se bahar nahi aa sakta.
-  if (request.cookies.get('human')?.value === '1') {
+  // NOTE (2026-11-06 14:25 PKT): is runtime mein request.cookies nahi
+  // hota (plain Fetch Request) — dxxlx par isi se 500 aaya tha. Is liye
+  // cookie seedha `cookie` header se parhte hain.
+  const cookieHeader = request.headers.get('cookie') || '';
+  const humanVerified = /(?:^|;\s*)human=1(?:;|$)/.test(cookieHeader);
+  if (humanVerified) {
     return next();
   }
 
