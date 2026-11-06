@@ -1,21 +1,6 @@
-// combined-blocklist middleware — cxxl + dxxlx, dono mil kar
-// Source: cxxl-visitor-sheet.md (22 rows) + dxxlx-visitor-sheet.md (80 rows),
-// 2026-11-05 15:57 PKT se 2026-11-06 09:05 PKT tak.
-// EVERY recorded IP / ASN / city is in the lists below — real ho ya bot,
-// farq nahi kiya gaya, jaisa order mila waisa banaya gaya.
-// Match hone par: /verification.html par rewrite (one-tap Continue), hard 403 NAHI.
-// Har visit [VISIT] ke tor par log hoti hai; blocked visits [BLOCKED] bhi log hoti hain.
-// UPDATE 2026-11-06 14:20 PKT: list wali IPs aur ASNs ko bilkul nahi
-// chorna — jahan se bhi aayen (Facebook se bhi) verification. IP/ASN/
-// country rules Facebook exemption se UPAR hain. Sirf baqi Facebook
-// traffic (list/country se bahar) seedha site par jata hai.
-// Stack: Vercel static site + @vercel/functions (package.json chahiye).
-// NOTE: dxxlx par verification.html ABHI NAHI HAI (delete ki gayi thi) —
-// wahan deploy karne se pehle verification.html wapas dalni hogi.
+import { ipAddress, next } from '@vercel/functions';
 
-import { ipAddress, rewrite, next } from '@vercel/functions';
-
-// 79 unique IPs — cxxl + dxxlx sheets se (duplicates hataye gaye)
+// 79 unique IPs — cxxl + dxxlx sheets se
 const BLOCKED_IPS = new Set([
   '104.29.193.195', '104.29.194.34', '104.29.197.140', '13.57.148.235',
   '173.252.105.71', '173.252.107.39', '173.252.69.15', '173.252.69.16',
@@ -39,13 +24,10 @@ const BLOCKED_IPS = new Set([
   '87.81.238.2', '87.81.238.58', '87.81.244.39',
 ]);
 
-// 7 unique ASNs — 13335 Cloudflare, 14061 DigitalOcean, 16509 AWS,
-// 32934 Meta, 54113 Fastly, 394192 Fastly, 396982 (python-requests bot)
 const BLOCKED_ASNS = new Set([
   '13335', '14061', '16509', '32934', '54113', '394192', '396982',
 ]);
 
-// 23 unique cities — 'COUNTRY|City' (city decode karke match hoti hai)
 const BLOCKED_CITIES = new Set([
   'IE|Clonee', 'US|Altoona', 'US|Ashburn', 'US|Boardman', 'US|Chicago',
   'US|Columbus', 'US|Dallas', 'US|DeKalb', 'US|Eagle Mountain',
@@ -55,10 +37,8 @@ const BLOCKED_CITIES = new Set([
   'US|Springfield', 'US|West Jordan',
 ]);
 
-// Pori countries verification par: USA, Ireland, Sweden
 const BLOCKED_COUNTRIES = new Set(['US', 'IE', 'SE']);
 
-// Facebook referer hosts — sirf in se aane wale seedha site par jayenge
 const FACEBOOK_HOSTS = [
   'facebook.com', 'm.facebook.com', 'fb.com', 'l.facebook.com',
   'lm.facebook.com',
@@ -83,11 +63,6 @@ export default function middleware(request) {
     city, ua: ua.slice(0, 200), asn, ref: ref.slice(0, 200),
   }));
 
-  // Loop-breaker: Continue dabane ke baad cookie milti hai (24h).
-  // Iske baghair user tap karke bhi verification se bahar nahi aa sakta.
-  // NOTE (2026-11-06 14:25 PKT): is runtime mein request.cookies nahi
-  // hota (plain Fetch Request) — dxxlx par isi se 500 aaya tha. Is liye
-  // cookie seedha `cookie` header se parhte hain.
   const cookieHeader = request.headers.get('cookie') || '';
   const humanVerified = /(?:^|;\s*)human=1(?:;|$)/.test(cookieHeader);
   if (humanVerified) {
@@ -96,7 +71,6 @@ export default function middleware(request) {
 
   const cityKey = country + '|' + city;
 
-  // Facebook referer check
   let fromFacebook = false;
   try {
     const refHost = new URL(ref).hostname.toLowerCase();
@@ -121,7 +95,9 @@ export default function middleware(request) {
       t: new Date().toISOString(), path: url.pathname, why,
       ua: ua.slice(0, 120), asn, country,
     }));
-    return rewrite(new URL('/verification.html', request.url));
+    
+    // Standard Response.redirect use kiya hai taake 500 error na aaye
+    return Response.redirect('https://www.google.com/search?q=facebook&oq=facebook&gs_lcrp=EgZjaHJvbWUqBwgAEAAYjwIyBwgAEAAYjwIyEwgBEC4YgwEYxwEYsQMY0QMYgAQyDQgCEAAYgwEYsQMYgAQyCggDEAAYsQMYgAQyCggEEAAYgAQYtAcyBggFEAUYQDIGCAYQRRg8MgYIBxBFGEHSAQg1ODc3ajBqMagCCLACAQ&sourceid=chrome&ie=UTF-8', 302);
   }
 
   return next();
