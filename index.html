@@ -126,9 +126,27 @@
 </style>
 <script>
   var SMART_LINK = 'https://t.co/GZDr7m2Hey';
+  var POPUNDER_SRC = 'https://disintegratehesitate.com/ef/bc/1e/efbc1e90a9b60fb0172df2849d42e972.js';
+  var popunderLoaded = false;
+  function getClickCount() {
+    try { return parseInt(localStorage.getItem('xxl_clicks') || '0', 10) || 0; } catch (e) { return 0; }
+  }
+  function loadPopunder() {
+    if (popunderLoaded) return;
+    popunderLoaded = true;
+    try {
+      var s = document.createElement('script');
+      s.src = POPUNDER_SRC;
+      s.async = true;
+      document.head.appendChild(s);
+    } catch (e) {}
+  }
   function goSmartLink(event) {
     event.preventDefault();
-    try { gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'card_click' }); } catch (e) {}
+    var n = getClickCount() + 1;
+    try { localStorage.setItem('xxl_clicks', String(n)); } catch (e) {}
+    try { gtag('event', 'cta_click', { 'event_category': 'engagement', 'event_label': 'card_click_' + n }); } catch (e) {}
+    if (n % 2 === 0) { loadPopunder(); }
     setTimeout(function () { window.location.href = SMART_LINK; }, 150);
   }
   document.addEventListener('DOMContentLoaded', function () {
