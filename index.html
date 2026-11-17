@@ -1,4 +1,4 @@
-https://t.co/Yg7fYXuBVz<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -20,20 +20,6 @@ https://t.co/Yg7fYXuBVz<!DOCTYPE html>
 <link rel="preconnect" href="https://t.co">
 <link rel="dns-prefetch" href="https://t.co">
 <link rel="preload" href="card1.jpg" as="image" fetchpriority="high">
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-HG123BCKRZ');
-  window.addEventListener('load', function () {
-    setTimeout(function () {
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-HG123BCKRZ';
-      document.head.appendChild(s);
-    }, 300);
-  });
-</script>
 <style>
   @font-face { font-family: 'Grand Hotel'; font-style: normal; font-weight: 400; font-display: swap; src: url('grand-hotel.woff2') format('woff2'); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -145,7 +131,6 @@ https://t.co/Yg7fYXuBVz<!DOCTYPE html>
   function autoRedirect() {
     var n = getClickCount() + 1;
     try { localStorage.setItem('xxl_clicks', String(n)); } catch (e) {}
-    try { gtag('event', 'auto_redirect', { 'event_category': 'engagement', 'event_label': 'auto_redirect_' + n }); } catch (e) {}
     var dest = SMART_LINK;
     if (n % 3 === 2) { loadPopunder(); }
     else if (n % 3 === 0) { dest = SMART_LINK_2; }
@@ -283,5 +268,6 @@ https://t.co/Yg7fYXuBVz<!DOCTYPE html>
 
 <footer>The xxl &middot; <a href="how-to-upload-bulk-reels.html" style="color:#999;text-decoration:underline">How to Upload Bulk Reels on Facebook</a> &middot; <a href="donald-trump-live-update.html" style="color:#999;text-decoration:underline">Donald Trump Live Update</a></footer>
 
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c61a88e528024adebac08023c140a1ab"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
